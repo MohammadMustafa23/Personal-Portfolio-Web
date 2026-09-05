@@ -1,0 +1,36 @@
+/* Hero */
+.hero, .section { position: relative; isolation: isolate; }
+.hero {
+  min-height: 100vh;
+  padding: 125px 0 78px;
+  display: flex;
+  align-items: center;
+}
+.scene { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: radial-gradient(circle at 50% 25%, rgba(32, 230, 181, .08), transparent 38%), rgba(5, 6, 7, .16); }
+.grid { position: absolute; inset: 0; opacity: .16; background-image: linear-gradient(rgba(32, 230, 181, .16) 1px, transparent 1px), linear-gradient(90deg, rgba(32, 230, 181, .16) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(to bottom, black, transparent); }
+.heroGrid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 54px; align-items: center; }
+.kicker { margin-bottom: 22px; color: var(--green); font: 9px "Press Start 2P"; }
+h1 { margin: 0 0 24px; font: clamp(36px, 5.5vw, 68px) "Press Start 2P"; line-height: 1.2; letter-spacing: -2px; text-shadow: 5px 5px 0 #052a23; }
+.heroCopy { max-width: 620px; color: #bccbc8; font-size: 13px; line-height: 1.85; }
+.cursorText { color: var(--green); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+.btn { padding: 15px 17px; border: 2px solid var(--orange); background: var(--orange); color: #070707; box-shadow: 5px 5px 0 #07362c; font: 10px "Press Start 2P"; transition: .2s; }
+.btn.alt { border-color: #555; background: #111; color: #fff; box-shadow: 5px 5px 0 #050505; }
+.btn:hover { transform: translate(3px, 3px); box-shadow: 2px 2px 0 #07362c; }
+.player { padding: 22px; border: 1px solid var(--orange); background: rgba(10, 12, 13, .9); box-shadow: 12px 12px 0 rgba(32, 230, 181, .09); animation: float 4s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-9px); } }
+.playerTop { display: flex; gap: 16px; align-items: center; padding-bottom: 18px; border-bottom: 1px dashed #18413e; }
+.heroAvatar { position: relative; display: grid; place-items: center; flex: 0 0 auto; overflow: hidden; background: #071214; image-rendering: pixelated; isolation: isolate; }
+.heroAvatar img { display: block; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; animation: avatarSwap .45s steps(5, end) both; }
+.heroAvatar::after { content: ""; position: absolute; inset: 2px; z-index: 2; pointer-events: none; border: 1px solid rgba(32, 230, 181, .72); box-shadow: inset 0 0 0 1px rgba(75, 184, 255, .2), 0 0 14px rgba(32, 230, 181, .12); animation: avatarFramePulse 2.4s steps(2, end) infinite; }
+@keyframes avatarSwap { from { opacity: 0; transform: scale(1.12); filter: saturate(.4) brightness(.8); } to { opacity: 1; transform: scale(1); filter: none; } }
+@keyframes avatarFramePulse { 50% { opacity: .42; } }
+.heroAvatarScan { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, transparent 0 4px, rgba(255, 255, 255, .12) 4px 5px); mix-blend-mode: screen; opacity: .25; }
+.bigface { position: relative; display: grid; place-items: center; width: 68px; height: 68px; }
+.mLogo, .mBotLogo { padding: 3px; border: 1px solid var(--green); box-shadow: 5px 5px 0 #062c25; }
+.playerName { font: 10px "Press Start 2P"; line-height: 1.7; }.playerName small { color: #aaa; font: 8px "Space Mono"; }
+.stat { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #1c3033; font-size: 11px; }.stat strong { color: var(--orange); }
+.missionLabel { margin-top: 17px; color: #777; font-size: 9px; }.bar { height: 7px; margin-top: 9px; border: 1px solid #155049; background: #0c2724; }.bar i { display: block; height: 100%; background: var(--orange); animation: load 1.8s ease-out both; }
+@keyframes load { from { width: 0; } }
+.missionBar i { width: 88%; }

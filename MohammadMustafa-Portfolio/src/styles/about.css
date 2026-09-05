@@ -1,0 +1,12 @@
+/* Shared section styles */
+.section { padding: 96px 0; }
+.section::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--orange); opacity: .6; }
+.title { margin-bottom: 45px; text-align: center; }.title .kicker { margin-bottom: 16px; }
+.title h2 { margin: 0; font: clamp(22px, 3vw, 30px) "Press Start 2P"; line-height: 1.5; text-shadow: 4px 4px #062c25; }
+.sub { max-width: 650px; margin: 14px auto 0; color: var(--muted); font-size: 11px; line-height: 1.8; text-align: center; }
+.reveal { opacity: 0; transform: translateY(35px); transition: .8s ease; }.reveal.show { opacity: 1; transform: none; }
+
+/* About / portfolio assistant */
+.aboutAI { display: grid; grid-template-columns: 1.45fr .75fr; gap: 18px; max-width: 1020px; margin: 0 auto; }
+.aiConsole, .aboutSide { position: relative; border: 1px solid #24464b; background: linear-gradient(145deg, #081113, #05090a); }
+.aboutSide { min-height: 495px; padding: 30px; }.sideKicker { margin-bottom: 22px; color: var(--blue); font: 8px "Press Start 2P"; }.aboutSide h3 { margin: 0 0 15px; font: 16px "Press Start 2P"; line-height: 1.65; }.aboutSide p { color: #9aa9a6; font: 11px "Space Mono"; line-height: 1.9; }.commandList { margin-top: 26px; border-top: 1px solid #1a3438; }.commandList div, .commandList a { display: grid; grid-template-columns: 28px 1fr; gap: 6px; padding: 13px 0; border-bottom: 1px solid #1a3438; text-decoration: none; }.commandList span { color: #50615e; font: 9px "Space Mono"; }.commandList b { color: var(--green); font: 9px "Space Mono"; }.commandList small { grid-column: 2; color: #687875; font: 8px "Space Mono"; }

@@ -1,0 +1,25 @@
+/* Projects — original card style with aligned text and actions */
+.projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.project {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 390px;
+  padding: 22px 22px 18px;
+  overflow: hidden;
+  border: 1px solid #1c5960;
+  background: linear-gradient(145deg, #0a1113, #050a0b);
+  text-align: left;
+  transition: .35s;
+}
+.project::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, transparent 35%, rgba(32, 230, 181, .13), transparent 65%); transform: translateX(-100%); transition: .7s; }
+.project:hover::before { transform: translateX(100%); }
+.project:hover { transform: translateY(-8px) rotateX(2deg); border-color: var(--orange); box-shadow: 0 20px 50px rgba(32, 230, 181, .12); }
+.projectNo { position: relative; z-index: 1; color: #777; font-size: 10px; text-align: left; }
+.project h3 { position: relative; z-index: 1; min-height: 52px; margin: 42px 0 15px; color: var(--orange); font: 16px "Press Start 2P"; line-height: 1.6; text-align: left; }
+.project p { position: relative; z-index: 1; flex: 1; max-width: 330px; margin: 0; color: #b8b5b1; font-size: 11px; line-height: 1.8; text-align: left; }
+.tags { position: relative; z-index: 1; display: flex; gap: 6px; min-height: 31px; margin-top: 18px; align-items: flex-start; flex-wrap: wrap; }
+.tag { padding: 6px 7px; border: 1px solid #263b3e; color: #aaa; font-size: 9px; white-space: nowrap; }
+.projectActions { position: relative; z-index: 1; display: flex; justify-content: flex-start; gap: 8px; min-height: 31px; margin-top: 16px; }
+.projectBtn { display: inline-flex; align-items: center; justify-content: center; min-width: 0; height: 31px; padding: 0 12px; border: 1px solid #2b3c3f; background: #0a1113; color: #a9b9b6; font: 8px "Press Start 2P"; white-space: nowrap; }.projectBtn.live { border-color: var(--green); background: var(--green); color: #03100d; }.projectBtn.live:hover { border-color: #75f6d6; background: #75f6d6; }.projectBtn.details { border-color: #425255; background: #0b1113; color: #d5dfdc; }.projectBtn.details:hover { border-color: var(--orange); color: var(--orange); }.projectBtn.disabled { cursor: default; opacity: .72; }
+.projectFooter { display: flex; justify-content: center; gap: 22px; margin-top: 22px; color: #667471; font: 8px "Press Start 2P"; }.projectFooter span:first-child { color: var(--green); }

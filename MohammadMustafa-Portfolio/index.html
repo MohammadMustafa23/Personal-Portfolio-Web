@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#020606" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>Mohammad Mustafa — Full-Stack × Generative AI</title>
+    <style>
+      #boot-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: grid;
+        place-content: center;
+        gap: 18px;
+        background: #050708;
+        color: #20e6b5;
+        font: 9px monospace;
+        letter-spacing: .5px;
+        transition: opacity .24s ease;
+      }
+      #boot-loader.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #boot-loader-spinner {
+        width: 34px;
+        height: 34px;
+        margin: 0 auto;
+        border: 3px solid #17302d;
+        border-top-color: #20e6b5;
+        border-right-color: #ff7b32;
+        border-radius: 50%;
+        animation: boot-loader-spin .75s linear infinite;
+      }
+      @keyframes boot-loader-spin { to { transform: rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) {
+        #boot-loader-spinner { animation-duration: 1.8s; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="boot-loader" role="status" aria-label="Loading portfolio">
+      <div id="boot-loader-spinner" aria-hidden="true"></div>
+      <span>LOADING PORTFOLIO</span>
+    </div>
+    <div id="root"></div>
+    <script>
+      (() => {
+        const loader = document.getElementById('boot-loader');
+        const startedAt = Date.now();
+        let hidden = false;
+        const hide = () => {
+          if (hidden) return;
+          hidden = true;
+          const wait = Math.max(900 - (Date.now() - startedAt), 0);
+          window.setTimeout(() => {
+            loader?.classList.add('is-hidden');
+            window.setTimeout(() => loader?.remove(), 260);
+          }, wait);
+        };
+        if (document.readyState === 'complete') hide();
+        else window.addEventListener('load', hide, { once: true });
+        window.setTimeout(hide, 2800);
+      })();
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
